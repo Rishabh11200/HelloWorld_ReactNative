@@ -12,20 +12,32 @@ import {
 export default class FirstPage extends React.Component {
 
    constructor(props) {  
-        super(props);  
-        this.state = {input: ''};
-        this.state = {disInput: ''};  
+        super(props);
+        this.state={
+          input: '',
+          disInput: '',
+          isEnabled: false,
+        }  
+        this.onPressButton = this.onPressButton.bind(this)
+        // console.log("Constructor called!");
     }  
+    // static getDerivedStateFromProps(props,state){
+    //   console.log(props + state.input);
+    //   return true
+    // }
 
     handleChange = (text) => {
       this.setState({ input : text })
     }
     onPressButton = (text) => {
-      this.setState({ disInput: this.state.input + ', Welcome to Hello World application.' })
-        
+      this.setState({ 
+        disInput: this.state.input + ', Welcome to Hello World application.',
+        isEnabled: !this.state.isEnabled
+       })
     }
     render(){
       const {input} = this.state
+      // console.log("Render is called!");
       return (
         <SafeAreaView style={styles.wholepage}>
           <View style={styles.firstcontainer}>  
@@ -40,9 +52,18 @@ export default class FirstPage extends React.Component {
             color = "black"
             onPress={ this.onPressButton }
             />
-            <Text style={styles.firsttext}>
-              {this.state.disInput}
-            </Text>
+            {
+              this.state.isEnabled?
+              <Text style={styles.firsttext}>
+                {this.state.disInput}
+              </Text>
+              :
+              <Text style={styles.firsttext}>
+              Nothing written.
+              </Text> 
+            
+            }
+          
             <View style={styles.centerview}>
               <Text style={styles.secondtext}>
               Hello World!
@@ -54,6 +75,7 @@ export default class FirstPage extends React.Component {
       )
     }
 }
+
 
 
 const styles = StyleSheet.create({
