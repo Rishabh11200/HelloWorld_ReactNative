@@ -1,4 +1,4 @@
-import React, { useState,Component } from 'react';
+import React, {useState, Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,10 +8,10 @@ import {
   View,
 } from 'react-native';
 import FirstPage from './FirstPage';
+import FirstPage2 from './FirstPage2';
 
-export default class App extends React.Component   {
-
-  render(){
-    return <FirstPage/> ;
+export default class App extends React.Component {
+  render() {
+    return <FirstPage2 />;
   }
-};
+}
