@@ -30,7 +30,8 @@ export default class FirstPage extends React.Component {
   };
   onPressButton = text => {
     this.setState({
-      disInput: this.state.input + ', Welcome to Hello World application.',
+      disInput:
+        'Hello ' + this.state.input + '!, Welcome to Hello World application.',
       isEnabled: !this.state.isEnabled,
     });
   };

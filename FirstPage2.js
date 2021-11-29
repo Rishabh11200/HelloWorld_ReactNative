@@ -11,6 +11,10 @@ import {
 
 const FirstPage2 = props => {
   const [text, isChanged] = useState('');
+  const [disText, onProceed] = useState('');
+  const onPressButton = text => {
+    onProceed('Hello ' + text + '!, Welcome to Hello World application.');
+  };
   return (
     <SafeAreaView style={styles.wholepage}>
       <View style={styles.firstcontainer}>
@@ -20,7 +24,12 @@ const FirstPage2 = props => {
           style={styles.firsttextinput}
           placeholder="Enter your name here."
         />
-        <Button title="Proceed" color="black" />
+        <Button
+          title="Proceed"
+          color="black"
+          onPress={() => onPressButton(text)}
+        />
+        <Text style={styles.firsttext}>{disText}</Text>
         <View style={styles.centerview}>
           <Text style={styles.secondtext}>Hello World!</Text>
         </View>
