@@ -12,8 +12,10 @@ import {
 const FirstPage2 = props => {
   const [text, isChanged] = useState('');
   const [disText, onProceed] = useState('');
+  const [textEnable, isEnabled] = useState(false);
   const onPressButton = text => {
-    onProceed('Hello ' + text + '!, Welcome to Hello World application.');
+    onProceed('Hey ' + text + '!, Welcome to Hello World application.');
+    isEnabled(!textEnable);
   };
   return (
     <SafeAreaView style={styles.wholepage}>
@@ -29,7 +31,8 @@ const FirstPage2 = props => {
           color="black"
           onPress={() => onPressButton(text)}
         />
-        <Text style={styles.firsttext}>{disText}</Text>
+        {textEnable ? <Text style={styles.firsttext}>{disText}</Text> : null}
+
         <View style={styles.centerview}>
           <Text style={styles.secondtext}>Hello World!</Text>
         </View>
@@ -57,8 +60,9 @@ const styles = StyleSheet.create({
   firsttext: {
     marginTop: 10,
     fontSize: 20,
-    color: '#3700B3',
+    color: 'cyan',
     textAlign: 'center',
+    backgroundColor: 'black',
   },
   centerview: {
     justifyContent: 'center',
