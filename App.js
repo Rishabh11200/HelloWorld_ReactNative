@@ -7,7 +7,6 @@ import {
   Button,
   View,
 } from 'react-native';
-import FirstPage from './FirstPage';
 import FirstPage2 from './FirstPage2';
 
 export default class App extends React.Component {
