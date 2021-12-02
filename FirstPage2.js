@@ -1,4 +1,4 @@
-import React, {useState, Component} from 'react';
+import React, {useState, Component, useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -17,6 +17,9 @@ const FirstPage2 = props => {
     onProceed('Hey ' + text + '!, Welcome to Hello World application.');
     isEnabled(!textEnable);
   };
+  useEffect(() => {
+    console.log('useEffect is invoked!');
+  });w
   return (
     <SafeAreaView style={styles.wholepage}>
       <View style={styles.firstcontainer}>
